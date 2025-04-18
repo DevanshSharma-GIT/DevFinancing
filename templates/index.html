@@ -1,0 +1,121 @@
+{% extends '_layout.html' %}
+
+{% block title %}DevFinancing - Your Personal Finance Tracker{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero__content">
+            <h1 class="hero__title">Unlock Your Financial Potential with <span class="hero__highlight">DevFinancing</span></h1>
+            <p class="hero__subtitle">Gain crystal-clear insights into your financial habits and pave the way for a prosperous future.</p>
+            {% if not session['user_id'] %}
+            <div class="hero__buttons-wrapper">
+                <div class="hero__button-container">
+                    <a href="{{ url_for('register') }}" class="hero__button hero__button--primary hero__button--animated">Sign Up</a>
+                </div>
+                <div class="hero__button-container">
+                    <a href="{{ url_for('login') }}" class="hero__button hero__button--secondary hero__button--animated">Log In</a>
+                </div>
+            </div>
+            {% else %}
+            <a href="{{ url_for('tracker') }}" class="hero__button hero__button--primary hero__button--animated">Access Your Tracker</a>
+            {% endif %}
+        </div>
+        <div class="hero__image">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWxjdTAwdHpjZm1zdGtqbG80amFtbWYybzhxNWlyYzR5M2xtbmh2ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/huzB7LTtoJACatDjrs/giphy.gif" alt="Animated line chart showing financial growth">
+        </div>
+    </section>
+
+    <section class="value-proposition">
+        <h2 class="value__title">Why Choose DevFinancing?</h2>
+        <div class="value__grid">
+            <div class="value__item value__item--animated" style="--animation-delay: 0.1s;">
+                <i class="fas fa-chart-line value__icon"></i>
+                <h3>Track with Precision</h3>
+                <p>Monitor every rupee with accuracy, ensuring no transaction goes unnoticed.</p>
+            </div>
+            <div class="value__item value__item--animated" style="--animation-delay: 0.3s;">
+                <i class="fas fa-lightbulb value__icon"></i>
+                <h3>Gain Powerful Insights</h3>
+                <p>Transform raw data into actionable knowledge about your spending patterns.</p>
+            </div>
+            <div class="value__item value__item--animated" style="--animation-delay: 0.5s;">
+                <i class="fas fa-lock value__icon"></i>
+                <h3>Secure and Private</h3>
+                <p>Your financial data is protected with robust security measures.</p>
+            </div>
+            <div class="value__item value__item--animated" style="--animation-delay: 0.7s;">
+                <i class="fas fa-mobile-alt value__icon"></i>
+                <h3>Access Anywhere, Anytime</h3>
+                <p>Manage your finances on the go with our responsive design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2 class="features__title">Explore Our Key Features</h2>
+        <div class="features__grid">
+            <div class="feature__item feature__item--animated" style="--animation-delay: 0.2s;">
+                <h3 class="feature__item-title">Effortless Expense Tracking</h3>
+                <p class="feature__item-description">Meticulously record your daily expenditures and income with intuitive categorization.</p>
+            </div>
+            <div class="feature__item feature__item--animated" style="--animation-delay: 0.4s;">
+                <h3 class="feature__item-title">Insightful Visualizations</h3>
+                <p class="feature__item-description">Witness your financial landscape unfold through interactive pie charts, providing a lucid overview of your spending habits.</p>
+            </div>
+            <div class="feature__item feature__item--animated" style="--animation-delay: 0.6s;">
+                <h3 class="feature__item-title">Categorized Clarity</h3>
+                <p class="feature__item-description">Distinguish between various financial activities such as sustenance, locomotion, investments, and leisure for granular analysis.</p>
+            </div>
+            <div class="feature__item feature__item--animated" style="--animation-delay: 0.8s;">
+                <h3 class="feature__item-title">Historical Deep Dive</h3>
+                <p class="feature__item-description">Delve into your financial history by effortlessly filtering transactions by specific months and years.</p>
+            </div>
+            <div class="feature__item feature__item--animated" style="--animation-delay: 1.0s;">
+                <h3 class="feature__item-title">Seamless Transaction Management</h3>
+                <p class="feature__item-description">Effortlessly modify or expunge recorded transactions to maintain an accurate financial ledger.</p>
+            </div>
+            <div class="feature__item feature__item--animated" style="--animation-delay: 1.2s;">
+                <h3 class="feature__item-title">Clear Spent vs. Remaining View</h3>
+                <p class="feature__item-description">Get an instant understanding of your spending habits with a dedicated comparison chart.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack-section">
+        <h2 class="tech-title">Built With <span class="highlight">Powerful Technologies</span></h2>
+        <p class="tech-subtitle">Leveraging a robust and efficient technology stack for a seamless experience.</p>
+        <ul class="tech-list">
+            <li class="tech-item tech-item--animated" style="--animation-delay: 0.2s;">
+                <i class="fab fa-python tech-icon"></i>
+                <span>Flask</span>
+                <small>(Backend Framework)</small>
+            </li>
+            <li class="tech-item tech-item--animated" style="--animation-delay: 0.4s;">
+                <i class="fas fa-code tech-icon"></i>
+                <span>Jinja2</span>
+                <small>(Templating Engine)</small>
+            </li>
+            <li class="tech-item tech-item--animated" style="--animation-delay: 0.6s;">
+                <i class="fas fa-chart-pie tech-icon"></i>
+                <span>Chart.js</span>
+                <small>(Data Visualization)</small>
+            </li>
+            <li class="tech-item tech-item--animated" style="--animation-delay: 0.8s;">
+                <i class="fas fa-file-code tech-icon"></i>
+                <span>JSON</span>
+                <small>(Data Storage)</small>
+            </li>
+            <li class="tech-item tech-item--animated" style="--animation-delay: 1.0s;">
+                <i class="fas fa-palette tech-icon"></i>
+                <span>CSS</span>
+                <small>(Styling)</small>
+            </li>
+            <li class="tech-item tech-item--animated" style="--animation-delay: 1.2s;">
+                <i class="fab fa-js tech-icon"></i>
+                <span>JavaScript</span>
+                <small>(Frontend Interactivity)</small>
+            </li>
+        </ul>
+        <p class="portfolio-link">Explore more of my creations at <a href="https://devanshsharma-git.github.io/Portfolio-/" target="_blank" class="highlight-link">my portfolio</a>.</p>
+    </section>
+{% endblock %}
